@@ -57,3 +57,5 @@ If you found a bug, please include the current version number.
 Please include as much information as you can provide. E.g. try to write down steps to reproduce the bug so we can investigate. If you would like to help, see [how to contribute](#Contribute).
 
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+
+&copy; Copyright, TestSwift 2018. All rights reserved.
