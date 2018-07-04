@@ -1,0 +1,408 @@
+Summary
+-------
+In this document we show the following steps
+1. create a repo
+2. create a branch
+3. add content to repo/branch
+4. commit
+5. 
+
+
+Preparing testSwift repo
+------------------------
+konstaninossmbp:Swift konstantinos$ cd testSwift
+konstaninossmbp:testSwift konstantinos$ mkdir source
+konstaninossmbp:testSwift konstantinos$ cd source/
+konstaninossmbp:source konstantinos$ subl instructions.md
+konstaninossmbp:source konstantinos$ cd ..
+konstaninossmbp:testSwift konstantinos$ rm -rf source/
+konstaninossmbp:testSwift konstantinos$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+konstaninossmbp:testSwift konstantinos$ git branch -va
+* master                 c32bc54 Initial commit
+  remotes/origin/HEAD    -> origin/master
+  remotes/origin/beta    c32bc54 Initial commit
+  remotes/origin/develop c32bc54 Initial commit
+  remotes/origin/master  c32bc54 Initial commit
+
+konstaninossmbp:testSwift konstantinos$ git remote -v
+origin  https://github.com/pirmavk/testSwift.git (fetch)
+origin  https://github.com/pirmavk/testSwift.git (push)
+
+konstaninossmbp:testSwift konstantinos$ git checkout develop
+Branch 'develop' set up to track remote branch 'develop' from 'origin'.
+Switched to a new branch 'develop'
+
+konstaninossmbp:testSwift konstantinos$ git branch -va
+* develop                c32bc54 Initial commit
+  master                 c32bc54 Initial commit
+  remotes/origin/HEAD    -> origin/master
+  remotes/origin/beta    c32bc54 Initial commit
+  remotes/origin/develop c32bc54 Initial commit
+  remotes/origin/master  c32bc54 Initial commit
+
+Contribution #1
+---------------
+konstaninossmbp:testSwift konstantinos$ git checkout -b feature/readmePrepare
+Switched to a new branch 'feature/readmePrepare'
+
+konstaninossmbp:testSwift konstantinos$ git branch -va
+  develop                c32bc54 Initial commit
+* feature/readmePrepare  c32bc54 Initial commit
+  master                 c32bc54 Initial commit
+  remotes/origin/HEAD    -> origin/master
+  remotes/origin/beta    c32bc54 Initial commit
+  remotes/origin/develop c32bc54 Initial commit
+  remotes/origin/master  c32bc54 Initial commit
+
+konstaninossmbp:testSwift konstantinos$ git status
+On branch feature/readmePrepare
+nothing to commit, working tree clean
+
+konstaninossmbp:testSwift konstantinos$ pwd
+/Users/konstantinos/Development/iOS-dev/iOS-Review-2015/Swift/testSwift
+konstaninossmbp:testSwift konstantinos$ mkdir source
+konstaninossmbp:testSwift konstantinos$ cd source/
+konstaninossmbp:source konstantinos$ cd ..
+konstaninossmbp:testSwift konstantinos$ subl  README.md 
+konstaninossmbp:testSwift konstantinos$ pwd
+/Users/konstantinos/Development/iOS-dev/iOS-Review-2015/Swift/testSwift
+
+konstaninossmbp:testSwift konstantinos$ git status
+On branch feature/readmePrepare
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+  modified:   README.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+  source/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+konstaninossmbp:testSwift konstantinos$ git add source/instructions.md 
+konstaninossmbp:testSwift konstantinos$ git status
+On branch feature/readmePrepare
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+  new file:   source/instructions.md
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+  modified:   README.md
+
+konstaninossmbp:testSwift konstantinos$ git add source/*
+
+konstaninossmbp:testSwift konstantinos$ git status
+On branch feature/readmePrepare
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+  new file:   source/instructions.md
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+  modified:   README.md
+
+konstaninossmbp:testSwift konstantinos$ git commit -m "Add readme details and instructions template"
+[feature/readmePrepare 266fa1c] Add readme details and instructions template
+ 1 file changed, 16 insertions(+)
+ create mode 100644 source/instructions.md
+
+konstaninossmbp:testSwift konstantinos$ git status
+On branch feature/readmePrepare
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+  modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+konstaninossmbp:testSwift konstantinos$ git commit -a -m "Add readme details and instructions template"
+[feature/readmePrepare af0bbf2] Add readme details and instructions template
+ 1 file changed, 59 insertions(+), 1 deletion(-)
+ rewrite README.md (100%)
+
+konstaninossmbp:testSwift konstantinos$ git status
+On branch feature/readmePrepare
+nothing to commit, working tree clean
+
+transfer repo testSwift to testSwift org
+-----------------------------------------
+konstaninossmbp:testSwift konstantinos$ git remote -v
+origin  https://github.com/pirmavk/testSwift.git (fetch)
+origin  https://github.com/pirmavk/testSwift.git (push)
+
+konstaninossmbp:testSwift konstantinos$ git remote set-url origin https://github.com/testSwift/testSwift.git
+konstaninossmbp:testSwift konstantinos$ git remote -v
+origin  https://github.com/testSwift/testSwift.git (fetch)
+origin  https://github.com/testSwift/testSwift.git (push)
+
+
+konstaninossmbp:testSwift konstantinos$ git branch -va
+  develop                c32bc54 Initial commit
+* feature/readmePrepare  c32bc54 Initial commit
+  master                 c32bc54 Initial commit
+  remotes/origin/HEAD    -> origin/master
+  remotes/origin/beta    c32bc54 Initial commit
+  remotes/origin/develop c32bc54 Initial commit
+  remotes/origin/master  c32bc54 Initial commit
+
+
+
+
+
+fork from testSwift to primavk
+------------------------------
+konstaninossmbp:testSwift konstantinos$ git remote set-url origin https://github.com/pirmavk/testSwift.git
+konstaninossmbp:testSwift konstantinos$ git status
+On branch feature/readmePrepare
+nothing to commit, working tree clean
+konstaninossmbp:testSwift konstantinos$ git remote -v
+origin  https://github.com/pirmavk/testSwift.git (fetch)
+origin  https://github.com/pirmavk/testSwift.git (push)
+
+konstaninossmbp:testSwift konstantinos$ git branch -va
+  develop                c32bc54 Initial commit
+* feature/readmePrepare  af0bbf2 Add readme details and instructions template
+  master                 c32bc54 Initial commit
+  remotes/origin/HEAD    -> origin/master
+  remotes/origin/beta    c32bc54 Initial commit
+  remotes/origin/develop c32bc54 Initial commit
+  remotes/origin/master  c32bc54 Initial commit
+konstaninossmbp:testSwift konstantinos$ git remote add upstream https://github.com/testSwift/testSwift.git
+
+konstaninossmbp:testSwift konstantinos$ git branch -va
+  develop                c32bc54 Initial commit
+* feature/readmePrepare  af0bbf2 Add readme details and instructions template
+  master                 c32bc54 Initial commit
+  remotes/origin/HEAD    -> origin/master
+  remotes/origin/beta    c32bc54 Initial commit
+  remotes/origin/develop c32bc54 Initial commit
+  remotes/origin/master  c32bc54 Initial commit
+
+konstaninossmbp:testSwift konstantinos$ git remote -v
+origin  https://github.com/pirmavk/testSwift.git (fetch)
+origin  https://github.com/pirmavk/testSwift.git (push)
+upstream  https://github.com/testSwift/testSwift.git (fetch)
+upstream  https://github.com/testSwift/testSwift.git (push)
+
+konstaninossmbp:testSwift konstantinos$ git fetch upstream
+From https://github.com/testSwift/testSwift
+ * [new branch]      beta       -> upstream/beta
+ * [new branch]      develop    -> upstream/develop
+ * [new branch]      master     -> upstream/master
+
+konstaninossmbp:testSwift konstantinos$ git checkout develop
+Switched to branch 'develop'
+Your branch is up to date with 'origin/develop'.
+
+konstaninossmbp:testSwift konstantinos$ git status
+On branch develop
+Your branch is up to date with 'origin/develop'.
+
+nothing to commit, working tree clean
+
+konstaninossmbp:testSwift konstantinos$ ls -al
+total 16
+drwxr-xr-x   5 konstantinos  staff   170 Jul  1 02:06 .
+drwxr-xr-x  28 konstantinos  staff   952 Jul  1 01:17 ..
+drwxr-xr-x  14 konstantinos  staff   476 Jul  1 02:07 .git
+-rw-r--r--   1 konstantinos  staff  1476 Jul  1 01:17 .gitignore
+-rw-r--r--   1 konstantinos  staff    11 Jul  1 02:06 README.md
+
+konstaninossmbp:testSwift konstantinos$ git checkout feature/readmePrepare
+Switched to branch 'feature/readmePrepare'
+
+konstaninossmbp:testSwift konstantinos$ ls -al
+total 16
+drwxr-xr-x   6 konstantinos  staff   204 Jul  1 02:10 .
+drwxr-xr-x  28 konstantinos  staff   952 Jul  1 01:17 ..
+drwxr-xr-x  14 konstantinos  staff   476 Jul  1 02:10 .git
+-rw-r--r--   1 konstantinos  staff  1476 Jul  1 01:17 .gitignore
+-rw-r--r--   1 konstantinos  staff  1311 Jul  1 02:10 README.md
+drwxr-xr-x   3 konstantinos  staff   102 Jul  1 02:10 source
+
+
+trying to push to remote gets error because of default account kmav
+-------------------------------------------------------------------
+konstaninossmbp:testSwift konstantinos$ git status
+On branch feature/readmePrepare
+nothing to commit, working tree clean
+konstaninossmbp:testSwift konstantinos$ git push
+fatal: The current branch feature/readmePrepare has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin feature/readmePrepare
+
+konstaninossmbp:testSwift konstantinos$ git status
+On branch feature/readmePrepare
+nothing to commit, working tree clean
+konstaninossmbp:testSwift konstantinos$ git push --set-upstream origin feature/readmePrepare
+remote: Permission to pirmavk/testSwift.git denied to kmav.
+fatal: unable to access 'https://github.com/pirmavk/testSwift.git/': The requested URL returned error: 403
+
+
+konstaninossmbp:testSwift konstantinos$ git status -v
+On branch feature/readmePrepare
+nothing to commit, working tree clean
+konstaninossmbp:testSwift konstantinos$ git push --set-upstream origin feature/readmePrepare
+remote: Permission to pirmavk/testSwift.git denied to kmav.
+fatal: unable to access 'https://github.com/pirmavk/testSwift.git/': The requested URL returned error: 403
+konstaninossmbp:testSwift konstantinos$ git user
+git: 'user' is not a git command. See 'git --help'.
+
+The most similar command is
+  subtree
+
+konstaninossmbp:testSwift konstantinos$ git push origin feature/readmePrepare
+remote: Permission to pirmavk/testSwift.git denied to kmav.
+fatal: unable to access 'https://github.com/pirmavk/testSwift.git/': The requested URL returned error: 403
+
+konstaninossmbp:testSwift konstantinos$ git config --list
+credential.helper=osxkeychain
+user.name=Konstantinos Mavroudakis
+user.email=kmavroudakis@gmail.com
+filter.media.clean=git-media-clean %f
+filter.media.smudge=git-media-smudge %f
+core.excludesfile=/Users/konstantinos/.gitignore_global
+difftool.sourcetree.cmd=opendiff "$LOCAL" "$REMOTE"
+difftool.sourcetree.path=
+mergetool.sourcetree.cmd=/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh "$LOCAL" "$REMOTE" -ancestor "$BASE" -merge "$MERGED"
+mergetool.sourcetree.trustexitcode=true
+filter.lfs.clean=git lfs clean %f
+filter.lfs.smudge=git lfs smudge %f
+filter.lfs.required=true
+commit.template=/Users/konstantinos/.stCommitMsg
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+core.ignorecase=true
+core.precomposeunicode=true
+remote.origin.url=https://github.com/pirmavk/testSwift.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
+branch.develop.remote=origin
+branch.develop.merge=refs/heads/develop
+remote.upstream.url=https://github.com/testSwift/testSwift.git
+remote.upstream.fetch=+refs/heads/*:refs/remotes/upstream/*
+
+
+konstaninossmbp:testSwift konstantinos$ vi .git/config 
+konstaninossmbp:testSwift konstantinos$ git config --list
+credential.helper=osxkeychain
+user.name=Konstantinos Mavroudakis
+user.email=kmavroudakis@gmail.com
+filter.media.clean=git-media-clean %f
+filter.media.smudge=git-media-smudge %f
+core.excludesfile=/Users/konstantinos/.gitignore_global
+difftool.sourcetree.cmd=opendiff "$LOCAL" "$REMOTE"
+difftool.sourcetree.path=
+mergetool.sourcetree.cmd=/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh "$LOCAL" "$REMOTE" -ancestor "$BASE" -merge "$MERGED"
+mergetool.sourcetree.trustexitcode=true
+filter.lfs.clean=git lfs clean %f
+filter.lfs.smudge=git lfs smudge %f
+filter.lfs.required=true
+commit.template=/Users/konstantinos/.stCommitMsg
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+core.ignorecase=true
+core.precomposeunicode=true
+remote.origin.url=https://github.com/pirmavk/testSwift.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
+branch.develop.remote=origin
+branch.develop.merge=refs/heads/develop
+remote.upstream.url=https://github.com/testSwift/testSwift.git
+remote.upstream.fetch=+refs/heads/*:refs/remotes/upstream/*
+user.name=Konstantinos Mavroudakis
+user.email=mavroudakisk@piraeusbank.gr
+
+konstaninossmbp:testSwift konstantinos$ git push origin feature/readmePrepare
+remote: Permission to pirmavk/testSwift.git denied to kmav.
+fatal: unable to access 'https://github.com/pirmavk/testSwift.git/': The requested URL returned error: 403
+konstaninossmbp:testSwift konstantinos$ git config user.name
+Konstantinos Mavroudakis
+konstaninossmbp:testSwift konstantinos$ git config user.name "pirmavk"
+konstaninossmbp:testSwift konstantinos$ vi .git/config 
+konstaninossmbp:testSwift konstantinos$ git push origin feature/readmePrepare
+remote: Permission to pirmavk/testSwift.git denied to kmav.
+fatal: unable to access 'https://github.com/pirmavk/testSwift.git/': The requested URL returned error: 403
+
+remove credential helper 
+------------------------
+konstaninossmbp:testSwift konstantinos$ git config --local credential.helper ""
+
+Submit my changes
+-----------------
+konstaninossmbp:testSwift konstantinos$ git push origin feature/readmePrepare
+Username for 'https://github.com': pirmavk
+Password for 'https://pirmavk@github.com': 
+Counting objects: 7, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (7/7), 1.56 KiB | 532.00 KiB/s, done.
+Total 7 (delta 0), reused 0 (delta 0)
+To https://github.com/pirmavk/testSwift.git
+ * [new branch]      feature/readmePrepare -> feature/readmePrepare
+
+
+==> create Pull request to merge from feature/readmePrepare into develop
+==> merge from feature/readmePrepare into develop
+
+Sync my pirmavk fork from parent repository
+-------------------------------------------
+konstaninossmbp:testSwift konstantinos$ git status
+On branch feature/readmePrepare
+nothing to commit, working tree clean
+
+konstaninossmbp:testSwift konstantinos$ git remote -v
+origin  https://github.com/pirmavk/testSwift.git (fetch)
+origin  https://github.com/pirmavk/testSwift.git (push)
+upstream  https://github.com/testSwift/testSwift.git (fetch)
+upstream  https://github.com/testSwift/testSwift.git (push)
+
+konstaninossmbp:testSwift konstantinos$ git fetch upstream
+konstaninossmbp:testSwift konstantinos$ git checkout develop
+Switched to branch 'develop'
+Your branch is up to date with 'origin/develop'.
+
+konstaninossmbp:testSwift konstantinos$ git rebase upstream/develop
+First, rewinding head to replay your work on top of it...
+Fast-forwarded develop to upstream/develop.
+
+konstaninossmbp:testSwift konstantinos$ git push -f origin develop
+Username for 'https://github.com': pirmavk
+Password for 'https://pirmavk@github.com': 
+Counting objects: 1, done.
+Writing objects: 100% (1/1), 655 bytes | 655.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0)
+To https://github.com/pirmavk/testSwift.git
+   c32bc54..2ba5c7d  develop -> develop
+
+Preparation for RELEASE
+-----------------------
+1. merge develop into beta
+2. merge beta into master
+3. close milestone
+
+*. sign release with GPG key
